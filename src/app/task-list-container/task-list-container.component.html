@@ -1,0 +1,29 @@
+<form [formGroup]="taskForm">
+  <div formArrayName="tasks">
+
+    <div *ngFor="let _ of tasks.controls; let i = index">
+      <!-- The repeated workingTime template -->
+      <ng-container label="listing" [formGroupName]="i">
+        <mat-label for="taskName">Task Name: </mat-label>
+        <input
+          matInput
+          id="taskName"
+          type="text"
+          formControlName="taskName"
+        />
+
+        <mat-label for="taskStatus">Task Status: </mat-label>
+        <input
+          matInput
+          id="taskStatus"
+          type="text"
+          formControlName="taskStatus"
+        />
+      </ng-container>
+    </div>
+    <button mat-button (click)="addTask()" type="button">
+      + Add a new task
+    </button>
+  </div>
+
+  <hr />
