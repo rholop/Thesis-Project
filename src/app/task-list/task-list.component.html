@@ -1,6 +1,5 @@
 <div *ngIf="taskService.tasks.length">
-
-  <div *ngFor='let message of taskService.tasks'> {{message | json}} </div>
+  <div *ngFor="let message of taskService.tasks">{{ message | json }}</div>
 </div>
 <div *ngIf="taskService.tasks.length == 0">
   <h2>No tasks yet! Add one below!</h2>
