@@ -26,7 +26,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     TaskHelperComponent,
     ListExporterComponent,
     HomeComponent,
-    HomeContainerComponent
+    HomeContainerComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,9 +34,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

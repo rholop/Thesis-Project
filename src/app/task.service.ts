@@ -4,13 +4,12 @@ import { Task } from './task';
 import { TASKS } from './mock_tasks';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
-
   public tasks: Task[] = [];
 
-  constructor() { }
+  constructor() {}
 
   add(task: Task): void {
     this.tasks.push(task);
