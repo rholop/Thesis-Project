@@ -1,1 +1,51 @@
-<p>task-maker works!</p>
+<h1 mat-dialog-title>Add a new task:</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="taskForm">
+    <mat-label for="name">Task Name: </mat-label>
+    <input matInput id="name" type="text" formControlName="name" />
+
+    <mat-label for="dueDate">Due Date: </mat-label>
+    <input matInput id="dueDate" type="date" formControlName="dueDate" />
+
+    <!-- <div mat-dialog-content>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="tasks">
+
+      <div *ngFor="let _ of tasks.controls; let i = index">
+        <!-- The repeated workingTime template
+        <ng-container label="listing" [formGroupName]="i">
+          <mat-label for="name">Day of Week: </mat-label>
+          <input
+            matInput
+            id="name"
+            type="text"
+            formControlName="name"
+          />
+
+          <mat-label for="dueDate">Start Time: </mat-label>
+          <input
+            matInput
+            id="dueDate"
+            type="date"
+            formControlName="dueDate"
+          />
+        </ng-container>
+      </div>
+    </div> -->
+
+    <!-- <button mat-button (click)="addTask()" type="button">
+      + Add another task
+    </button> -->
+    <hr />
+
+    <button mat-button (click)="onSubmit()">Ok</button>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+
+    <hr />
+
+    <!-- <p>Form Value: {{ taskForm.value | json }}</p>
+
+    <p>Form Status: {{ taskForm.status }}</p> -->
+  </form>
+</div>

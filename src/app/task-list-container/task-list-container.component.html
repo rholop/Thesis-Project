@@ -1,23 +1,23 @@
-<form [formGroup]="taskForm">
+<!-- <form [formGroup]="taskForm">
   <div formArrayName="tasks">
 
     <div *ngFor="let _ of tasks.controls; let i = index">
-      <!-- The repeated workingTime template -->
+      <!-- The repeated workingTime template
       <ng-container label="listing" [formGroupName]="i">
-        <mat-label for="taskName">Task Name: </mat-label>
+        <mat-label for="name">Task Name: </mat-label>
         <input
           matInput
-          id="taskName"
+          id="name"
           type="text"
-          formControlName="taskName"
+          formControlName="name"
         />
 
-        <mat-label for="taskStatus">Task Status: </mat-label>
+        <mat-label for="id">Task Status: </mat-label>
         <input
           matInput
-          id="taskStatus"
+          id="id"
           type="text"
-          formControlName="taskStatus"
+          formControlName="id"
         />
       </ng-container>
     </div>
@@ -27,3 +27,13 @@
   </div>
 
   <hr />
+  <p>Form Status: {{ taskForm.value | json }}</p> -->
+
+  <h2>Current Tasks</h2>
+  <div>
+    <app-task-list></app-task-list>
+    <hr />
+    <button mat-raised-button color="primary" (click)="openDialog()">Add New Task</button>
+    <button mat-raised-button color="primary"  class="clear"
+          (click)="taskService.clear()">Clear messages</button>
+  </div>
