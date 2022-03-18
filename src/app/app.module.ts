@@ -15,6 +15,8 @@ import { HomeContainerComponent } from './home-container/home-container.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { DeleteOneTaskDialogComponent } from './delete-one-task-dialog/delete-one-task-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ListExporterComponent,
     HomeComponent,
     HomeContainerComponent,
+    DeleteDialogComponent,
+    DeleteOneTaskDialogComponent,
   ],
   imports: [
     BrowserModule,

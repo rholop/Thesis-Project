@@ -11,6 +11,7 @@ import {
 } from '@angular/material/dialog';
 import { TaskMakerComponent } from '../task-maker/task-maker.component';
 import { Time } from '@angular/common';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-task-list-container',
@@ -24,7 +25,7 @@ export class TaskListContainerComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public taskService: TaskService) {}
 
-  openDialog(): void {
+  openNewTaskDialog(): void {
     const dialogRef = this.dialog.open(TaskMakerComponent, {
       minWidth: '30em',
       data: this.numberOfTasks,
@@ -45,6 +46,15 @@ export class TaskListContainerComponent implements OnInit {
   clearTasks(): void {
     this.numberOfTasks = 0;
     this.taskService.clear();
+  }
+
+  openDeleteDialog(): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {minWidth: '30em'});
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'yes') {this.clearTasks(); }
+      else {}
+    });
   }
 
   ngOnInit(): void {}

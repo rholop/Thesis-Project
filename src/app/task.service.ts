@@ -23,6 +23,19 @@ export class TaskService {
     this.tasks = [];
   }
 
+  delete(idToFind: number): void {
+    const index = this.tasks.findIndex(task => task.id === idToFind);
+    if (index > -1) {
+      this.tasks.splice(index, 1);
+    }
+    console.log('taskdelete');
+    console.log(this.tasks);
+  }
+
+  getTaskName(id: number): any {
+    return this.tasks.find(task => task.id === id)?.name;
+  }
+
   getNumberofTasks(): number {
     return this.tasks.length + 1;
   }

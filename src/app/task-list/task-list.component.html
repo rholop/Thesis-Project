@@ -1,5 +1,7 @@
 <div *ngIf="taskService.tasks.length">
-  <div *ngFor="let message of taskService.tasks">{{ message | json }}</div>
+  <li *ngFor="let task of taskService.tasks">
+    <span>{{ task.name }}             <button>Manually Organize</button><button>Get Help Organizing</button><button (click)="openDeleteTaskDialog(task.id)">Delete Task</button></span>
+  </li>
 </div>
 <div *ngIf="taskService.tasks.length == 0">
   <h2>No tasks yet! Add one below!</h2>
