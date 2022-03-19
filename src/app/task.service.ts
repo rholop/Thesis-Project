@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Task } from './task';
 import { TASKS } from './mock_tasks';
+import { Time } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +31,13 @@ export class TaskService {
     }
     console.log('taskdelete');
     console.log(this.tasks);
+  }
+
+  update(idToFind: number, updateTime: Time, updatePriority: number): void {
+    const index = this.tasks.findIndex(task => task.id === idToFind);
+    this.tasks[index].timeNeeded = updateTime;
+    this.tasks[index].priority = updatePriority;
+    this.tasks[index].status = 0;
   }
 
   getTaskName(id: number): any {

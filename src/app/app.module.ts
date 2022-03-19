@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { DeleteOneTaskDialogComponent } from './delete-one-task-dialog/delete-one-task-dialog.component';
+import { TestTypeformComponent } from './test-typeform/test-typeform.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DeleteOneTaskDialogComponent } from './delete-one-task-dialog/delete-on
     HomeContainerComponent,
     DeleteDialogComponent,
     DeleteOneTaskDialogComponent,
+    TestTypeformComponent,
   ],
   imports: [
     BrowserModule,

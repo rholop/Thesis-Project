@@ -32,7 +32,7 @@ export class TaskMakerComponent {
     @Inject(MAT_DIALOG_DATA) public data: number
   ) {}
 
-  onNoClick(): void {
+  onCancel(): void {
     this.dialogRef.close();
   }
 
