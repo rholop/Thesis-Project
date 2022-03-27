@@ -1,17 +1,33 @@
-<div *ngIf="taskService.tasks.length">
-  <li *ngFor="let task of taskService.tasks">
-    <span>
-      {{ task.name }}
-      <span *ngIf="task.status < 0">
-      <button (click)="openManualTaskDialog(task.id)">Manually Organize</button>
-      <button (click)="openTaskHelperDialog()">
-        Get Help</button>
-      </span>
-      <button (click)="openDeleteTaskDialog(task.id)">
-        Delete Task</button>
-    </span>
-  </li>
-</div>
-<div *ngIf="taskService.tasks.length == 0">
-  <h2>No tasks yet! Add one below!</h2>
-</div>
+<ul *ngIf="taskService.tasks.length">
+      <li *ngFor="let task of taskService.tasks">
+          {{ task.name }}
+          <span class="button-row">
+          <span *ngIf="task.status < 0">
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="openManualTaskDialog(task.id)"
+            >
+              Manually Organize
+            </button>
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="openTypeformDialog(task.id)"
+            >
+              Get Help
+            </button>
+          </span>
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="openDeleteTaskDialog(task.id)"
+          >
+            Delete Task
+          </button>
+        </span></li>
+
+    </ul>
+    <div *ngIf="taskService.tasks.length == 0">
+      <mat-card-subtitle>No tasks yet! Add one below!</mat-card-subtitle>
+    </div>

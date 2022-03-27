@@ -4,17 +4,17 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { Task } from '../task';
+import { Task } from '../interfaces/task';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
-import { TaskService } from '../task.service';
+import { TaskService } from '../services/task.service';
 
 @Component({
-  selector: 'app-task-maker',
-  templateUrl: './task-maker.component.html',
-  styleUrls: ['./task-maker.component.scss'],
+  selector: 'app-new-task',
+  templateUrl: './new-task.component.html',
+  styleUrls: ['./new-task.component.scss'],
 })
-export class TaskMakerComponent {
+export class NewTaskComponent {
 
   taskForm = this.fb.group({
     id: this.data,
@@ -28,7 +28,7 @@ export class TaskMakerComponent {
 
   constructor(
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<TaskMakerComponent>,
+    public dialogRef: MatDialogRef<NewTaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: number
   ) {}
 

@@ -1,1 +1,9 @@
-<p>list-exporter works!</p>
+<div class="list"><ul *ngIf="tasks.length" id="htmlData">
+  <li *ngFor="let task of tasks">
+    {{ task.name }} - {{ task.dueDate }} - {{ task.priority }}
+  </li>
+</ul>
+</div>
+<button mat-raised-button color="accent" (click)="openPDF()">
+  Download My To-do List
+</button>

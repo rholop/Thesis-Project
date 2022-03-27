@@ -1,0 +1,60 @@
+{
+  "total_items": 1,
+  "page_count": 1,
+  "items": [
+    {
+      "landing_id": "69fe75dceuwxdbxya69fe75bjjmk9jb1",
+      "token": "69fe75dceuwxdbxya69fe75bjjmk9jb1",
+      "response_id": "69fe75dceuwxdbxya69fe75bjjmk9jb1",
+      "landed_at": "2022-03-22T19:19:15Z",
+      "submitted_at": "2022-03-22T19:19:21Z",
+      "metadata": {
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.83 Safari/537.36",
+        "platform": "other",
+        "referer": "https://03s53lbqr3z.typeform.com/to/H81Mb7nu",
+        "network_id": "95ff44c264",
+        "browser": "default"
+      },
+      "hidden": {},
+      "calculated": { "score": 0 },
+      "answers": [
+        {
+          "field": {
+            "id": "C3XSLyaFknzB",
+            "ref": "9928b5837d1b5b8a",
+            "type": "yes_no"
+          },
+          "type": "boolean",
+          "boolean": true
+        },
+        {
+          "field": {
+            "id": "d92iC0mopIVO",
+            "ref": "b8fe21c6-6934-4bef-93d9-c257e7bf11d9",
+            "type": "picture_choice"
+          },
+          "type": "choice",
+          "choice": {
+            "id": "zdAXVyrGmJEE",
+            "ref": "23408126-4940-4e97-a664-32d869178cb1",
+            "label": "So-so"
+          }
+        },
+        {
+          "field": {
+            "id": "gBITsh1OD3F8",
+            "ref": "0030c67f-be98-47fb-9776-3b22a85d4c20",
+            "type": "number"
+          },
+          "type": "number",
+          "number": 1
+        }
+      ],
+      "variables": [
+        { "key": "priority", "type": "number", "number": 2 },
+        { "key": "score", "type": "number", "number": 0 },
+        { "key": "timefactor", "type": "number", "number": 1.25 }
+      ]
+    }
+  ]
+}

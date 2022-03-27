@@ -1,8 +1,8 @@
-import { TaskService } from './../task.service';
+import { TaskService } from '../services/task.service';
 import { Component, OnInit } from '@angular/core';
 import { DeleteOneTaskDialogComponent } from '../delete-one-task-dialog/delete-one-task-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { TaskHelperComponent } from '../task-helper/task-helper.component';
+import { TypeformComponent } from '../typeform/typeform.component';
 import { Time } from '@angular/common';
 import { TaskManualComponent } from '../task-manual/task-manual.component';
 
@@ -18,7 +18,7 @@ export class TaskListComponent implements OnInit {
     this.taskService.delete(index);
   }
 
-  updateTask(index: number, time: Time, priority: number): void {
+  updateTask(index: number, time: number, priority: number): void {
     this.taskService.update(index, time, priority);
   }
 
@@ -31,8 +31,15 @@ export class TaskListComponent implements OnInit {
     });
   }
 
-  openTaskHelperDialog(): void {
-    const dialogRef = this.dialog.open(TaskHelperComponent, {minWidth: ''});
+  openTypeformDialog(index: number): void {
+    const dialogRef = this.dialog.open(TypeformComponent, {data: index, minWidth: '50em', minHeight: '30em'});
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'cancel') {}
+      else {
+        this.updateTask(index, result.timeNeed, result.priority);
+      }
+    });
   }
 
   openManualTaskDialog(index: number): void {

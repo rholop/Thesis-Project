@@ -22,6 +22,8 @@
     "@angular/platform-browser-dynamic": "~13.2.6",
     "@angular/router": "~13.2.6",
     "@typeform/embed": "^1.8.2",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

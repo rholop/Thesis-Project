@@ -7,12 +7,10 @@
 
     <mat-label for="dueDate">Due Date: </mat-label>
     <input matInput id="dueDate" type="date" formControlName="dueDate" />
-
-    <hr />
-
-    <button mat-button (click)="onSubmit()">Submit</button>
-    <button mat-button (click)="onCancel()">Cancel</button>
-
-    <hr />
   </form>
 </div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
+    <button mat-raised-button color="accent" (click)="onCancel()">Cancel</button>
+  </div>
+

@@ -1,24 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@use "@angular/material" as mat;
 
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
-}
-h2, h3 {
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
-}
+@include mat.core();
+
+// Define a dark theme
+$dark-primary: mat.define-palette(mat.$indigo-palette);
+$dark-accent: mat.define-palette(mat.$blue-gray-palette);
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $dark-primary,
+      accent: $dark-accent,
+    ),
+  )
+);
+
+// Apply the dark theme by default
+@include mat.all-component-themes($dark-theme);
+@include mat.input-theme($dark-theme);
+
 body {
-  margin: 2em;
+  margin: 0;
+  min-width: 100vw;
+  min-height: 100vh;
 }
-body, input[type="text"], button {
-  color: #333;
-  font-family: Cambria, Georgia, serif;
-}
-/* everywhere else */
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
+

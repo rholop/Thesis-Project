@@ -6,7 +6,7 @@ export interface Task {
   priority: number;
   dueDate: Date;
   status: number;
-  timeNeeded: Time;
+  timeNeeded: number;
 }
 
 export class Task {

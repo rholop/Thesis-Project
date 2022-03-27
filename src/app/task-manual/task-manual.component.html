@@ -1,18 +1,14 @@
-<h1 mat-dialog-title>Manually set priority and time for {{data}}:</h1>
+<h1 mat-dialog-title>Manually set priority and time for {{ data }}:</h1>
 
 <div mat-dialog-content>
   <form [formGroup]="manualTaskForm">
     <mat-label for="priority">Task Priority: </mat-label>
     <input matInput id="priority" type="number" formControlName="priority" />
-
     <mat-label for="timeNeed">Time Needed: </mat-label>
-    <input matInput id="timeNeed" type="time" formControlName="timeNeed" />
-
-    <hr />
-<div mat-dialog-actions>
-    <button mat-button (click)="onSubmit()">Submit</button>
-    <button mat-button (click)="onCancel()">Cancel</button>
-  </div>
-    <hr />
+    <input matInput id="timeNeed" type="number" formControlName="timeNeed" />
   </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+  <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
 </div>

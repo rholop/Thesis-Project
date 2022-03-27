@@ -1,17 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, Validators, FormArray } from '@angular/forms';
-import { MatCard } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { TaskService } from '../task.service';
-import { Task } from '../task';
+import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../services/task.service';
+import { Task } from '../interfaces/task';
 import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
+  MatDialog
 } from '@angular/material/dialog';
-import { TaskMakerComponent } from '../task-maker/task-maker.component';
+import { NewTaskComponent } from '../new-task/new-task.component';
 import { Time } from '@angular/common';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+
 
 @Component({
   selector: 'app-task-list-container',
@@ -19,16 +15,14 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
   styleUrls: ['./task-list-container.component.scss'],
 })
 export class TaskListContainerComponent implements OnInit {
-  numberOfTasks = 0;
-
   private newTask: Task = new Task();
 
   constructor(public dialog: MatDialog, public taskService: TaskService) {}
 
   openNewTaskDialog(): void {
-    const dialogRef = this.dialog.open(TaskMakerComponent, {
+    const dialogRef = this.dialog.open(NewTaskComponent, {
       minWidth: '30em',
-      data: this.numberOfTasks,
+      data: this.taskService.getNumberofTasks(),
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -37,14 +31,12 @@ export class TaskListContainerComponent implements OnInit {
       } else {
         this.newTask = new Task(result);
         this.taskService.add(this.newTask);
-        this.numberOfTasks++;
         console.log(typeof result);
       }
     });
   }
 
   clearTasks(): void {
-    this.numberOfTasks = 0;
     this.taskService.clear();
   }
 

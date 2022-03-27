@@ -26,7 +26,6 @@ export class TaskManualComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.warn(this.manualTaskForm.value);
     this.dialogRef.close(this.manualTaskForm.value);
   }
 }

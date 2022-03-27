@@ -1,4 +1,26 @@
-div {
-  background-color: #eee;
-  padding: 1rem;
+.button-row {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+}
+
+ul {
+  margin: 8px 0 8px 0;
+}
+
+.mat-raised-button {
+  font-size: 13px;
+  line-height: 26px;
+  margin-left: 8px;
+}
+
+li {
+  display: list-item;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  font-size: 16px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }

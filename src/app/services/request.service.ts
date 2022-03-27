@@ -1,0 +1,81 @@
+import { TaskService } from './task.service';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+import { MyVariable } from '../interfaces/MyVariable';
+import { HelperData } from '../interfaces/HelperData';
+import { TypeFormAPIResponse } from '../interfaces/TypeFormAPIResponse';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class RequestService {
+  data: TypeFormAPIResponse;
+  priorityIndex: number;
+  timeFactorIndex: number;
+  priority: number;
+  timeFactor: number;
+  result: HelperData;
+
+  constructor(private http: HttpClient, private taskService: TaskService) {}
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      Authorization:
+        'Bearer tfp_4jx9QAhwEkX84j4kKKwUnKHWE4QD4J4sCeLbf1ej6o1g_3pYNDaENnhuQBv',
+    }),
+  };
+
+  private url = 'https://api.typeform.com/forms/H81Mb7nu/responses';
+  private urlForDeletion = this.url + '?included_response_ids=';
+
+  private handleError<T>(
+    operation = 'operation',
+    result?: T
+  ): (error: any) => Observable<T> {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      this.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
+
+  private log(message: string): void {
+    console.log(message);
+  }
+
+  getQuizResponse(): Observable<any> {
+    return this.http
+      .get(this.url, this.httpOptions)
+      .pipe(catchError(this.handleError('getQuizResponse')));
+  }
+
+
+  deleteResponse(id: string): void {
+    this.http.delete(this.urlForDeletion + id, this.httpOptions)
+    .pipe(catchError(this.handleError('deleteResponse')));
+  }
+
+  getQuizResponses(index: number): void {
+    this.getQuizResponse().subscribe((data) => {
+      this.data = data;
+      console.log(data);
+      this.priorityIndex = this.data.items[0].variables.findIndex(
+        (v: MyVariable) => v.key === 'priority'
+      );
+      this.priority = this.data.items[0].variables[this.priorityIndex].number;
+      this.timeFactorIndex = this.data.items[0].variables.findIndex(
+        (v: MyVariable) => v.key === 'timefactor'
+      );
+      this.timeFactor =
+        this.data.items[0].variables[this.timeFactorIndex].number;
+      this.taskService.update(
+        index,
+        this.timeFactor,
+        this.priority
+      );
+    });
+    this.deleteResponse(this.data.items[0].response_id);
+  }
+}

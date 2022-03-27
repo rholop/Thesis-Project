@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TaskHelperComponent } from './task-helper.component';
+import { TypeformComponent } from './typeform.component';
 
-describe('TaskHelperComponent', () => {
-  let component: TaskHelperComponent;
-  let fixture: ComponentFixture<TaskHelperComponent>;
+describe('TypeformComponent', () => {
+  let component: TypeformComponent;
+  let fixture: ComponentFixture<TypeformComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TaskHelperComponent ]
+      declarations: [ TypeformComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TaskHelperComponent);
+    fixture = TestBed.createComponent(TypeformComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
