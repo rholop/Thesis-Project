@@ -2,14 +2,17 @@
 
 <div mat-dialog-content>
   <form [formGroup]="taskForm">
-    <mat-label for="name">Task Name: </mat-label>
+    <p><mat-form-field appearance="fill">
+    <mat-label for="name">Task Name</mat-label>
     <input matInput id="name" type="text" formControlName="name" />
-
-    <mat-label for="dueDate">Due Date: </mat-label>
+  </mat-form-field></p>
+  <mat-form-field appearance="fill">
+    <mat-label for="dueDate">Due Date</mat-label>
     <input matInput id="dueDate" type="date" formControlName="dueDate" />
+  </mat-form-field>
   </form>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions align="center">
     <button mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
     <button mat-raised-button color="accent" (click)="onCancel()">Cancel</button>
   </div>

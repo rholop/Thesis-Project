@@ -2,13 +2,23 @@
 
 <div mat-dialog-content>
   <form [formGroup]="manualTaskForm">
-    <mat-label for="priority">Task Priority: </mat-label>
-    <input matInput id="priority" type="number" formControlName="priority" />
-    <mat-label for="timeNeed">Time Needed: </mat-label>
+    <div class="priority">
+    <mat-label for="priority">Task Priority:</mat-label><p class="radio-priority">
+    <!-- <input matInput id="priority" type="number" formControlName="priority" /> -->
+    <mat-radio-group id="priority" formControlName="priority">
+      <mat-radio-button value="1">Low</mat-radio-button>
+      <mat-radio-button value="2">Medium</mat-radio-button>
+      <mat-radio-button value="3">High</mat-radio-button>
+    </mat-radio-group>
+  </p>
+</div>
+    <mat-form-field appearance="fill">
+    <mat-label for="timeNeed">Time Needed</mat-label>
     <input matInput id="timeNeed" type="number" formControlName="timeNeed" />
+  </mat-form-field>
   </form>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions align="center">
   <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
   <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
 </div>

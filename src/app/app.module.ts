@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskListComponent } from './task-list/task-list.component';
@@ -15,14 +15,16 @@ import { HomeContainerComponent } from './home-container/home-container.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { DeleteOneTaskDialogComponent } from './delete-one-task-dialog/delete-one-task-dialog.component';
 import { TestTypeformComponent } from './test-typeform/test-typeform.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatListModule} from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import {MatListModule} from '@angular/material/list';
     MatCardModule,
     MatDividerModule,
     MatTooltipModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

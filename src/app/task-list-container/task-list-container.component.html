@@ -14,13 +14,12 @@
       (click)="openDeleteDialog()"
     >
       Delete all tasks</button
-    ><button
+    ><span class="button-row"><button
       *ngIf="taskService.tasks.length"
       mat-raised-button
       color="primary"
       [routerLink]="['/list']"
     >
-      Download PDF of Tasks
-    </button>
+      Download PDF of Tasks</button></span>
   </mat-card-actions>
 </mat-card>
