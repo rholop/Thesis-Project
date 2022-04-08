@@ -44,29 +44,27 @@ export class ListExporterComponent implements OnInit {
     }
   }
 
-
-
   convertTask(previous: Task): TaskForFormatting {
     let tempTask: TaskForFormatting;
     if (previous.status === 0) {
-    tempTask = {
-      id: previous.id,
-      priority: this.convertPriority(previous.priority),
-      name: previous.name,
-      dueDate: previous.dueDate,
-      status: previous.status,
-      timeNeeded: previous.timeNeeded,
-    };
-  } else {
-    tempTask = {
-      id: previous.id,
-      priority: 'Unknown',
-      name: previous.name,
-      dueDate: previous.dueDate,
-      status: previous.status,
-      timeNeeded: 'Unknown',
-    };
-  }
+      tempTask = {
+        id: previous.id,
+        priority: this.convertPriority(previous.priority),
+        name: previous.name,
+        dueDate: previous.dueDate,
+        status: previous.status,
+        timeNeeded: previous.timeNeeded,
+      };
+    } else {
+      tempTask = {
+        id: previous.id,
+        priority: 'Unknown',
+        name: previous.name,
+        dueDate: previous.dueDate,
+        status: previous.status,
+        timeNeeded: 'Unknown',
+      };
+    }
     return tempTask;
   }
 
@@ -108,7 +106,7 @@ export class ListExporterComponent implements OnInit {
           tasks: tempArray,
         };
         this.taskGroups.push(newTaskGroup);
-        console.log(typeof(task.dueDate));
+        console.log(typeof task.dueDate);
       }
     }
     this.taskGroups.sort((a, b) => this.compareDates(a.dueDate, b.dueDate));
@@ -129,7 +127,6 @@ export class ListExporterComponent implements OnInit {
       }
     });
   }
-
 
   public openPDF(): void {
     this.pdfDate = Date().substring(4, 15);

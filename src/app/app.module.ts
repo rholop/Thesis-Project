@@ -19,14 +19,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { DeleteOneTaskDialogComponent } from './delete-one-task-dialog/delete-one-task-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatBadgeModule } from '@angular/material/badge';
 import { HomeDialogComponent } from './home-dialog/home-dialog.component';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -53,13 +50,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
-    MatDividerModule,
     MatTooltipModule,
-    MatListModule,
     MatFormFieldModule,
     MatRadioModule,
     MatBadgeModule,
-    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

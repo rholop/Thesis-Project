@@ -50,7 +50,7 @@ export class TaskService {
       priority: task.priority,
       dueDate: new Date(task.dueDate),
       status: task.status,
-      timeNeeded: task.timeNeeded
+      timeNeeded: task.timeNeeded,
     };
     return tempTask;
   }

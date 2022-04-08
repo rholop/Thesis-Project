@@ -3,21 +3,25 @@
     Download My To-do List
   </button>
   <button
-      mat-raised-button
-      color="accent"
-      (click)="openHomeDialog()"
-      class="home-button"
-    >
-      Go to Home Page
-    </button>
-  </mat-card-actions>
+    mat-raised-button
+    color="accent"
+    (click)="openHomeDialog()"
+    class="home-button"
+  >
+    Go to Home Page
+  </button>
+</mat-card-actions>
 
 <p>
   <br />
-<mat-card-title> Don't worry about the strange formatting below, it's all to help get you a better to-do list!</mat-card-title></p>
+  <mat-card-title>
+    Don't worry about the strange formatting below, it's all to help get you a
+    better to-do list!</mat-card-title
+  >
+</p>
 <br />
-  <div *ngIf="tasks.length" id="htmlData">
-    <div class="list">
+<div *ngIf="tasks.length" id="htmlData">
+  <div class="list">
     <ul *ngFor="let taskGroup of finalTaskGroups">
       <h1>Tasks for {{ taskGroup.dueDate.toDateString() }}:</h1>
       <li *ngFor="let task of taskGroup.tasks">
