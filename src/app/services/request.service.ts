@@ -1,9 +1,9 @@
 import { TaskService } from './task.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { MyVariable } from '../interfaces/MyVariable';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { TypeFormStructure } from '../interfaces/TypeFormStructure';
 import { HelperData } from '../interfaces/HelperData';
 import { TypeFormAPIResponse } from '../interfaces/TypeFormAPIResponse';
 
@@ -67,11 +67,11 @@ export class RequestService {
       this.data = data;
       console.log(data);
       this.priorityIndex = this.data.items[0].variables.findIndex(
-        (v: MyVariable) => v.key === 'priority'
+        (v: TypeFormStructure) => v.key === 'priority'
       );
       this.priority = this.data.items[0].variables[this.priorityIndex].number;
       this.timeFactorIndex = this.data.items[0].variables.findIndex(
-        (v: MyVariable) => v.key === 'timefactor'
+        (v: TypeFormStructure) => v.key === 'timefactor'
       );
       this.timeFactor =
         this.data.items[0].variables[this.timeFactorIndex].number;

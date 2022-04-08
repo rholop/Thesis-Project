@@ -1,9 +1,8 @@
 import { TaskService } from '../services/task.service';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DeleteOneTaskDialogComponent } from '../delete-one-task-dialog/delete-one-task-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TypeformComponent } from '../typeform/typeform.component';
-import { Time } from '@angular/common';
 import { TaskManualComponent } from '../task-manual/task-manual.component';
 
 @Component({
@@ -33,8 +32,7 @@ export class TaskListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'yes') {
         this.deleteTask(index);
-      } else {
-      }
+      } else {}
     });
   }
 
