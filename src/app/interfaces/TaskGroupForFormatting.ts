@@ -1,4 +1,4 @@
-import { TaskForFormatting } from "./TaskForFormatting";
+import { TaskForFormatting } from './TaskForFormatting';
 
 export interface TaskGroupForFormatting {
   dueDate: Date;

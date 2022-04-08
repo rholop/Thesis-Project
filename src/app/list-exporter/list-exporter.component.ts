@@ -44,8 +44,11 @@ export class ListExporterComponent implements OnInit {
     }
   }
 
+
+
   convertTask(previous: Task): TaskForFormatting {
     let tempTask: TaskForFormatting;
+    if (previous.status === 0) {
     tempTask = {
       id: previous.id,
       priority: this.convertPriority(previous.priority),
@@ -54,6 +57,16 @@ export class ListExporterComponent implements OnInit {
       status: previous.status,
       timeNeeded: previous.timeNeeded,
     };
+  } else {
+    tempTask = {
+      id: previous.id,
+      priority: 'Unknown',
+      name: previous.name,
+      dueDate: previous.dueDate,
+      status: previous.status,
+      timeNeeded: 'Unknown',
+    };
+  }
     return tempTask;
   }
 

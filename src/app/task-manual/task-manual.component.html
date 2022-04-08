@@ -43,6 +43,6 @@
   </form>
 </div>
 <div mat-dialog-actions align="center">
-  <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+  <button mat-raised-button color="primary" [disabled]="!manualTaskForm.valid" (click)="onSubmit()">Submit</button>
   <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
 </div>

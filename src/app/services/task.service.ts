@@ -57,10 +57,10 @@ export class TaskService {
 
   add(task: Task): void {
     this.tasks.push(this.convertTask(task));
-    console.log(task);
-    console.log('task successfully added');
-    console.log('current tasks');
-    console.log(this.tasks);
+    // console.log(task);
+    // console.log('task successfully added');
+    // console.log('current tasks');
+    // console.log(this.tasks);
   }
 
   clear(): void {
@@ -81,8 +81,8 @@ export class TaskService {
     this.tasks[index].timeNeeded = updateTime;
     this.tasks[index].priority = updatePriority;
     this.tasks[index].status = 0;
-    console.log('task updated');
-    console.log(this.tasks[index]);
+    // console.log('task updated');
+    // console.log(this.tasks[index]);
   }
 
   getTaskName(id: number): any {

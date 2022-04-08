@@ -18,7 +18,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { DeleteOneTaskDialogComponent } from './delete-one-task-dialog/delete-one-task-dialog.component';
-import { TestTypeformComponent } from './test-typeform/test-typeform.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -42,7 +41,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     HomeContainerComponent,
     DeleteDialogComponent,
     DeleteOneTaskDialogComponent,
-    TestTypeformComponent,
     HomeDialogComponent,
   ],
   imports: [

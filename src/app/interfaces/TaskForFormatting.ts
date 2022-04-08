@@ -3,8 +3,8 @@ export interface TaskForFormatting {
   name: string;
   priority: string;
   dueDate: Date;
-  status: number;
-  timeNeeded: number;
+  status: any;
+  timeNeeded: any;
 }
 
 export class Task {
