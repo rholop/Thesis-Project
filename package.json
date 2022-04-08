@@ -1,5 +1,5 @@
 {
-  "name": "thesis",
+  "name": "ncf-to-do-er",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -21,6 +21,9 @@
     "@angular/platform-browser": "~13.2.6",
     "@angular/platform-browser-dynamic": "~13.2.6",
     "@angular/router": "~13.2.6",
+    "@typeform/embed": "^1.8.2",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
@@ -30,6 +33,7 @@
     "@angular/cli": "~13.2.5",
     "@angular/compiler-cli": "~13.2.6",
     "@types/jasmine": "~3.6.0",
+    "@types/jest": "^27.4.1",
     "@types/node": "^12.20.47",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",

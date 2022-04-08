@@ -1,0 +1,22 @@
+mat-label {
+  // margin: 8px 8px 8px 0;
+  color: white;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+.radio-priority {
+  margin: 16px 16px 16px 0;
+}
+
+.priority {
+  background-color: rgb(255 255 255 / 10%);
+  border-radius: 4px;
+  padding: 0.75em 0.75em 0.75em 0.75em;
+  margin-bottom: 16px;
+}
+
+.full-width {
+  width: 100%;
+}

@@ -1,0 +1,58 @@
+.list {
+  color: black;
+  background-color: white;
+  padding: 50px 20px 20px 20px;
+  font-size: 24px;
+  border-radius: 4px;
+}
+
+.task-name {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+ul {
+  margin-bottom: 40px;
+  list-style-image: url("/assets/bullet.png");
+}
+
+ul li {
+  margin-bottom: 15px;
+}
+
+ul ul {
+  list-style-type: disc;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  list-style-image: none;
+}
+
+ul ul li {
+  margin-bottom: 10px;
+}
+
+ol {
+  list-style: circle;
+}
+
+ol li {
+  line-height: 28px;
+}
+
+.recommendations {
+  margin: 20px;
+  margin-right: 180px;
+  padding: 20px;
+  background-color: rgba(194, 208, 227, 0.4);
+}
+
+h1 {
+  text-decoration: underline;
+  font-size: 48px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+button {
+  margin: 8px 8px 8px 0;
+}

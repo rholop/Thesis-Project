@@ -1,1 +1,64 @@
-<p>list-exporter works!</p>
+<mat-card-actions>
+  <button mat-raised-button color="accent" (click)="openPDF()">
+    Download My To-do List
+  </button>
+  <button
+    mat-raised-button
+    color="accent"
+    (click)="openHomeDialog()"
+    class="home-button"
+  >
+    Go to Home Page
+  </button>
+</mat-card-actions>
+
+<p>
+  <br />
+  <mat-card-title>
+    Don't worry about the strange formatting below, it's all to help get you a
+    better to-do list!</mat-card-title
+  >
+</p>
+<br />
+<div *ngIf="tasks.length" id="htmlData">
+  <div class="list">
+    <ul *ngFor="let taskGroup of finalTaskGroups">
+      <h1>Tasks for {{ taskGroup.dueDate.toDateString() }}:</h1>
+      <li *ngFor="let task of taskGroup.tasks">
+        <span class="task-name">{{ task.name }}</span>
+        <ul class="task-info">
+          <li><b>Priority:</b> {{ task.priority }}</li>
+          <li><b>Time Needed:</b> {{ task.timeNeeded }} hours</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="recommendations">
+      Recommendations for long or high/medium priority tasks:
+      <ol>
+        <li>
+          Attend TA sessions or Professor Office hours - both are likely on
+          Canvas, but you can always email your professor or check your
+          syllabus.
+        </li>
+        <li>
+          Make an appointment with the Student Success Center to help with time
+          mangement, organization, study skills, and more.
+          (https://ncf.mywconline.com/)
+        </li>
+        <li>
+          Make an appointment at the Writing Resource Center for any
+          writing-specific tasks. (https://ncf.mywconline.com/)
+        </li>
+        <li>
+          Break down your tasks! Manageable pieces are easier to work on. The
+          student success center can help with that.
+        </li>
+        <li>
+          Finally, if you're just too stuck and don't know what to do, just
+          reach out to your professor. Everyone wants to see you succeed and
+          asking for help is encouraged!
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>

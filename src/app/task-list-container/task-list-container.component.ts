@@ -1,36 +1,70 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormArray } from '@angular/forms';
-import { MatCard } from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { TaskService } from '../services/task.service';
+import { Task } from '../interfaces/task';
+import { MatDialog } from '@angular/material/dialog';
+import { NewTaskComponent } from '../new-task/new-task.component';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { HomeDialogComponent } from '../home-dialog/home-dialog.component';
 
 @Component({
   selector: 'app-task-list-container',
   templateUrl: './task-list-container.component.html',
-  styleUrls: ['./task-list-container.component.scss']
+  styleUrls: ['./task-list-container.component.scss'],
 })
 export class TaskListContainerComponent implements OnInit {
-  taskForm = this.fb.group({
-    tasks: this.fb.array([this.fb.group({
-      taskName: [''],
-      taskStatus: ['']
-    })])
-  });
+  private newTask: Task = new Task();
+  hidden: boolean;
 
-  get tasks(): FormArray {
-    return this.taskForm.get('tasks') as FormArray;
+  constructor(public dialog: MatDialog, public taskService: TaskService) {}
+
+  openNewTaskDialog(): void {
+    const dialogRef = this.dialog.open(NewTaskComponent, {
+      minWidth: '30em',
+      data: this.taskService.getNumberofTasks(),
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      if (result === undefined) {
+      } else {
+        this.newTask = new Task(result);
+        this.taskService.add(this.newTask);
+        this.hidden = true;
+        console.log(typeof result);
+      }
+    });
   }
 
-  constructor( private fb: FormBuilder) { }
+  clearTasks(): void {
+    this.taskService.clear();
+  }
+
+  openDeleteDialog(): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      minWidth: '30em',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'yes') {
+        this.clearTasks();
+      } else {
+      }
+    });
+  }
+
+  openHomeDialog(): void {
+    const dialogRef = this.dialog.open(HomeDialogComponent, {
+      minWidth: '30em',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'yes') {
+        this.clearTasks();
+      } else {
+      }
+    });
+  }
 
   ngOnInit(): void {
+    this.hidden = false;
   }
-
-  addTask(): void {
-    const group = this.fb.group({
-      taskName: [''],
-      taskStatus: ['']
-    });
-    this.tasks.push(group);
-  }
-
 }

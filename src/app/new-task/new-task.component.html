@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Add a new task:</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="taskForm" autocomplete="off">
+    <p>
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label for="name">Task Name</mat-label>
+        <input matInput id="name" required type="text" formControlName="name" />
+        <mat-error *ngIf="taskForm.controls.name.invalid"
+          >Name is required.</mat-error
+        >
+      </mat-form-field>
+    </p>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label for="dueDate">Due Date</mat-label>
+      <input
+        matInput
+        id="dueDate"
+        type="date"
+        required
+        formControlName="dueDate"
+      />
+      <mat-error *ngIf="taskForm.controls.dueDate.invalid"
+        >Due date is required.</mat-error
+      >
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions align="center">
+  <button
+    mat-raised-button
+    color="accent"
+    [disabled]="!taskForm.valid"
+    (click)="onSubmit()"
+  >
+    Submit
+  </button>
+  <button mat-raised-button color="accent" (click)="onCancel()">Cancel</button>
+</div>
