@@ -1,25 +1,45 @@
 <mat-card>
-  <mat-card-title>Current Tasks</mat-card-title>
+  <mat-card-title align="center" class="sub-title"
+    >Current Tasks</mat-card-title
+  >
   <mat-card-content>
     <app-task-list></app-task-list>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="openNewTaskDialog()">
-      Add New Task
-    </button>
-    <button
-      *ngIf="taskService.tasks.length"
-      mat-raised-button
-      color="primary"
-      (click)="openDeleteDialog()"
-    >
-      Delete all tasks</button
-    ><span class="button-row"><button
+</mat-card>
+<mat-card-actions>
+  <button
+    mat-raised-button
+    matBadge="!"
+    matBadgeColor="warn"
+    [matBadgeHidden]="hidden"
+    color="primary"
+    (click)="openNewTaskDialog()"
+  >
+    Add New Task
+  </button>
+  <button
+    *ngIf="taskService.tasks.length"
+    mat-raised-button
+    color="primary"
+    (click)="openDeleteDialog()"
+  >
+    Delete all tasks</button
+  ><span class="button-row"
+    ><button
       *ngIf="taskService.tasks.length"
       mat-raised-button
       color="primary"
       [routerLink]="['/list']"
     >
-      Download PDF of Tasks</button></span>
-  </mat-card-actions>
-</mat-card>
+      Download PDF of Tasks
+    </button>
+  </span>
+  <button
+    mat-raised-button
+    color="accent"
+    (click)="openHomeDialog()"
+    class="home-button"
+  >
+    Go to Home Page
+  </button>
+</mat-card-actions>

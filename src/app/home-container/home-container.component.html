@@ -1,1 +1,23 @@
-<div><button mat-raised-button color="primary" [routerLink]="['/list-maker']">Make List</button></div>
+<div class="home-container">
+  <span class="description">
+    <h1>
+      Let us take the guess work out of which tasks to work on first and how
+      long to work on them!
+    </h1>
+    <br />
+    <br />
+    <p>{{ name }} asks you 3-4 questions about your tasks.</p>
+    <p>
+      With your answers, we assign a priority (low, medium, or high) to your
+      task and estimate the hours it may take. We also make some recommendations
+      for success at New College!
+    </p>
+    <p>Watch the demonstration on the right, or give it a try below.</p>
+    <h2>
+      <button mat-raised-button color="primary" [routerLink]="['/list-maker']">
+        Start Your To-do List
+      </button>
+    </h2>
+  </span>
+  <img class="help-gif" src="{{ imagePath }}" />
+</div>

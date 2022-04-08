@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-task-manual',
@@ -9,8 +9,8 @@ import { FormBuilder } from '@angular/forms';
 })
 export class TaskManualComponent implements OnInit {
   manualTaskForm = this.fb.group({
-    priority: '',
-    timeNeed: {hours: '', minutes: ''}
+    priority: ['', Validators.required],
+    timeNeed: ['', Validators.required],
   });
 
   constructor(

@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-container.component.scss']
 })
 export class HomeContainerComponent implements OnInit {
+  imagePath = '/assets/demo.gif';
+  name = 'To Do List Helper';
 
   constructor() { }
 

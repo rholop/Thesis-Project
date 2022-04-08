@@ -3,19 +3,43 @@
 <div mat-dialog-content>
   <form [formGroup]="manualTaskForm">
     <div class="priority">
-    <mat-label for="priority">Task Priority:</mat-label><p class="radio-priority">
-    <!-- <input matInput id="priority" type="number" formControlName="priority" /> -->
-    <mat-radio-group id="priority" formControlName="priority">
-      <mat-radio-button value="1">Low</mat-radio-button>
-      <mat-radio-button value="2">Medium</mat-radio-button>
-      <mat-radio-button value="3">High</mat-radio-button>
-    </mat-radio-group>
-  </p>
-</div>
-    <mat-form-field appearance="fill">
-    <mat-label for="timeNeed">Time Needed</mat-label>
-    <input matInput id="timeNeed" type="number" formControlName="timeNeed" />
-  </mat-form-field>
+      <mat-label for="priority">Task Priority:</mat-label>
+      <p class="radio-priority">
+        <!-- <input matInput id="priority" type="number" formControlName="priority" /> -->
+        <mat-radio-group id="priority" required formControlName="priority">
+          <mat-radio-button value="1">Low</mat-radio-button>
+          <mat-radio-button value="2">Medium</mat-radio-button>
+          <mat-radio-button value="3">High</mat-radio-button>
+        </mat-radio-group>
+      </p>
+      <mat-error *ngIf="manualTaskForm.controls.priority.invalid"
+        >Priority is required.</mat-error
+      >
+    </div>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label for="timeNeed">Hour(s) Needed</mat-label>
+      <input
+        matInput
+        id="timeNeed"
+        type="number"
+        required
+        formControlName="timeNeed"
+        min=".25"
+        max="10"
+        step="0.25"
+        value="0.25"
+      />
+      <mat-error
+        *ngIf="
+          manualTaskForm.value.timeNeed || manualTaskForm.value.timeNeed === 0
+        "
+        >Enter a number between 0.25-10. If you need more than 10 hours, break
+        the task down!</mat-error
+      >
+      <mat-error *ngIf="manualTaskForm.controls.timeNeed.invalid"
+        >Hours needed is required.</mat-error
+      >
+    </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions align="center">

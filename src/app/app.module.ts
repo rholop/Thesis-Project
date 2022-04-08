@@ -25,6 +25,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatBadgeModule } from '@angular/material/badge';
+import { HomeDialogComponent } from './home-dialog/home-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { MatRadioModule } from '@angular/material/radio';
     DeleteDialogComponent,
     DeleteOneTaskDialogComponent,
     TestTypeformComponent,
+    HomeDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +60,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatListModule,
     MatFormFieldModule,
     MatRadioModule,
+    MatBadgeModule,
+    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

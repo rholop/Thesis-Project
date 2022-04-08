@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../services/task.service';
 import { Task } from '../interfaces/task';
-import {
-  MatDialog
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { NewTaskComponent } from '../new-task/new-task.component';
-import { Time } from '@angular/common';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
-
+import { HomeDialogComponent } from '../home-dialog/home-dialog.component';
 
 @Component({
   selector: 'app-task-list-container',
@@ -16,6 +13,7 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 })
 export class TaskListContainerComponent implements OnInit {
   private newTask: Task = new Task();
+  hidden: boolean;
 
   constructor(public dialog: MatDialog, public taskService: TaskService) {}
 
@@ -31,6 +29,7 @@ export class TaskListContainerComponent implements OnInit {
       } else {
         this.newTask = new Task(result);
         this.taskService.add(this.newTask);
+        this.hidden = true;
         console.log(typeof result);
       }
     });
@@ -41,13 +40,31 @@ export class TaskListContainerComponent implements OnInit {
   }
 
   openDeleteDialog(): void {
-    const dialogRef = this.dialog.open(DeleteDialogComponent, {minWidth: '30em'});
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      minWidth: '30em',
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'yes') {this.clearTasks(); }
-      else {}
+      if (result === 'yes') {
+        this.clearTasks();
+      } else {
+      }
     });
   }
 
-  ngOnInit(): void {}
+  openHomeDialog(): void {
+    const dialogRef = this.dialog.open(HomeDialogComponent, {
+      minWidth: '30em',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'yes') {
+        this.clearTasks();
+      } else {
+      }
+    });
+  }
+
+  ngOnInit(): void {
+    this.hidden = false;
+  }
 }

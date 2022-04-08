@@ -1,5 +1,5 @@
 import { TaskService } from '../services/task.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DeleteOneTaskDialogComponent } from '../delete-one-task-dialog/delete-one-task-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TypeformComponent } from '../typeform/typeform.component';
@@ -12,6 +12,8 @@ import { TaskManualComponent } from '../task-manual/task-manual.component';
   styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent implements OnInit {
+  hiddenManual: boolean;
+  hiddenHelper: boolean;
   constructor(public dialog: MatDialog, public taskService: TaskService) {}
 
   deleteTask(index: number): void {
@@ -23,35 +25,51 @@ export class TaskListComponent implements OnInit {
   }
 
   openDeleteTaskDialog(index: number): void {
-    const dialogRef = this.dialog.open(DeleteOneTaskDialogComponent, {minWidth: '30em', data: this.taskService.getTaskName(index)});
+    const dialogRef = this.dialog.open(DeleteOneTaskDialogComponent, {
+      minWidth: '30em',
+      data: this.taskService.getTaskName(index),
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'yes') {this.deleteTask(index); }
-      else {}
+      if (result === 'yes') {
+        this.deleteTask(index);
+      } else {
+      }
     });
   }
 
   openTypeformDialog(index: number): void {
-    const dialogRef = this.dialog.open(TypeformComponent, {data: index, minWidth: '50em', minHeight: '30em'});
+    const dialogRef = this.dialog.open(TypeformComponent, {
+      data: index,
+      minWidth: '50em',
+      minHeight: '30em',
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'cancel') {}
-      else {
-        this.updateTask(index, result.timeNeed, result.priority);
+      this.hiddenHelper = true;
+      if (result === 'cancel') {
+      } else {
       }
     });
   }
 
   openManualTaskDialog(index: number): void {
-    const dialogRef = this.dialog.open(TaskManualComponent, {data: this.taskService.getTaskName(index)});
+    const dialogRef = this.dialog.open(TaskManualComponent, {
+      minWidth: '30em',
+      data: this.taskService.getTaskName(index),
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'cancel') {}
-      else {
+      this.hiddenManual = true;
+      if (result === 'cancel') {
+      } else {
         this.updateTask(index, result.timeNeed, result.priority);
       }
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.hiddenHelper = false;
+    this.hiddenManual = false;
+  }
 }

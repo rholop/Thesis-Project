@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Are you sure you want to go back to the homepage?</h1>
+<mat-dialog-content
+  >If you go back home, any tasks you've started will be
+  erased.</mat-dialog-content
+>
+
+<div mat-dialog-actions align="center">
+  <button
+    mat-raised-button
+    color="warn"
+    [routerLink]="['/home']"
+    (click)="onYes()"
+  >
+    Go Home & Delete List
+  </button>
+  <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+</div>

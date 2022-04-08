@@ -51,10 +51,15 @@ export class RequestService {
       .pipe(catchError(this.handleError('getQuizResponse')));
   }
 
-
   deleteResponse(id: string): void {
-    this.http.delete(this.urlForDeletion + id, this.httpOptions)
-    .pipe(catchError(this.handleError('deleteResponse')));
+    this.http.delete(this.urlForDeletion + id, this.httpOptions).subscribe({
+      next: (data) => {
+        console.log(data + 'Delete successful');
+      },
+      error: (error) => {
+        console.error('There was an error!', error);
+      },
+    });
   }
 
   getQuizResponses(index: number): void {
@@ -70,12 +75,8 @@ export class RequestService {
       );
       this.timeFactor =
         this.data.items[0].variables[this.timeFactorIndex].number;
-      this.taskService.update(
-        index,
-        this.timeFactor,
-        this.priority
-      );
+      this.taskService.update(index, this.timeFactor, this.priority);
+      this.deleteResponse(this.data.items[0].response_id);
     });
-    this.deleteResponse(this.data.items[0].response_id);
   }
 }

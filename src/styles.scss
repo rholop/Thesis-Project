@@ -24,3 +24,32 @@ body {
   min-height: 100vh;
 }
 
+.title {
+  // font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  font-size: 50px;
+  padding: 0.4em 0.4em 0.4em 0.4em;
+  color: #929cd4;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.05em;
+  text-shadow: 4px 4px 0px rgb(42, 42, 42), 7px 7px 0px rgba(0, 0, 0, 0.2);
+}
+
+.sub-title {
+  // font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  font-size: 30px;
+  padding: 0.4em 0.4em 0.4em 0.4em;
+  color: #929cd4;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.05em;
+  text-shadow: 4px 4px 0px rgb(42, 42, 42), 7px 7px 0px rgba(0, 0, 0, 0.2);
+}
+
+.purple-tip {
+  background: #3747ac !important;
+}

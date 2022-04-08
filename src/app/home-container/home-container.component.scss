@@ -1,0 +1,21 @@
+.home-container {
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+button {
+  margin-top: 16px;
+  font-size: 18px;
+}
+
+.home-container img {
+  margin-left: auto;
+  max-width: 60vw;
+  border-radius: 4px;
+}

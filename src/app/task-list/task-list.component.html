@@ -1,33 +1,47 @@
 <ul *ngIf="taskService.tasks.length">
-      <li *ngFor="let task of taskService.tasks">
-          {{ task.name }}
-          <span class="button-row">
-          <span *ngIf="task.status < 0">
-            <button
-              mat-raised-button
-              color="accent"
-              (click)="openTypeformDialog(task.id)"
-            >
-              Get Help
-            </button>
-            <button
-              mat-raised-button
-              color="accent"
-              (click)="openManualTaskDialog(task.id)"
-            >
-              Do It Yourself
-            </button>
-          </span>
-          <button
-            mat-raised-button
-            color="accent"
-            (click)="openDeleteTaskDialog(task.id)"
-          >
-            Delete Task
-          </button>
-        </span></li>
-
-    </ul>
-    <div *ngIf="taskService.tasks.length == 0">
-      <mat-card-subtitle>No tasks yet! Add one below!</mat-card-subtitle>
-    </div>
+  <li *ngFor="let task of taskService.tasks">
+    {{ task.name }}
+    <span class="button-row">
+      <span *ngIf="task.status < 0">
+        <button
+          mat-raised-button
+          color="accent"
+          mat-raised-button
+          matBadge="!"
+          matBadgeColor="warn"
+          [matBadgeHidden]="hiddenHelper"
+          matTooltip="Use this option to help you determine priority and time for your task"
+          matTooltipClass="purple-tip"
+          [matTooltipDisabled]="hiddenHelper"
+          (click)="openTypeformDialog(task.id)"
+        >
+          Get Help
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          mat-raised-button
+          matBadge="!"
+          matBadgeColor="warn"
+          [matBadgeHidden]="hiddenManual"
+          matTooltip="Click here to enter priority and time on your own"
+          matTooltipClass="purple-tip"
+          [matTooltipDisabled]="hiddenManual"
+          (click)="openManualTaskDialog(task.id)"
+        >
+          Do It Yourself
+        </button>
+      </span>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="openDeleteTaskDialog(task.id)"
+      >
+        Delete Task
+      </button>
+    </span>
+  </li>
+</ul>
+<div *ngIf="taskService.tasks.length == 0">
+  <mat-card-content><h3>No tasks yet! Add one below!</h3></mat-card-content>
+</div>
