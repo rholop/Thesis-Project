@@ -5,7 +5,6 @@
     <div class="priority">
       <mat-label for="priority">Task Priority:</mat-label>
       <p class="radio-priority">
-        <!-- <input matInput id="priority" type="number" formControlName="priority" /> -->
         <mat-radio-group id="priority" required formControlName="priority">
           <mat-radio-button value="1">Low</mat-radio-button>
           <mat-radio-button value="2">Medium</mat-radio-button>
@@ -13,8 +12,7 @@
         </mat-radio-group>
       </p>
       <mat-error *ngIf="manualTaskForm.controls.priority.invalid"
-        >Priority is required.</mat-error
-      >
+        >Priority is required.</mat-error>
     </div>
     <mat-form-field class="full-width" appearance="fill">
       <mat-label for="timeNeed">Hour(s) Needed</mat-label>
@@ -34,15 +32,19 @@
           manualTaskForm.value.timeNeed || manualTaskForm.value.timeNeed === 0
         "
         >Enter a number between 0.25-10. If you need more than 10 hours, break
-        the task down!</mat-error
-      >
+        the task down!</mat-error>
       <mat-error *ngIf="manualTaskForm.controls.timeNeed.invalid"
-        >Hours needed is required.</mat-error
-      >
+        >Hours needed is required.</mat-error>
     </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions align="center">
-  <button mat-raised-button color="primary" [disabled]="!manualTaskForm.valid" (click)="onSubmit()">Submit</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!manualTaskForm.valid"
+    (click)="onSubmit()">
+    Submit
+  </button>
   <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
 </div>

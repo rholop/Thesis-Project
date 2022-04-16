@@ -18,7 +18,7 @@
     Add New Task
   </button>
   <button
-    *ngIf="taskService.tasks.length"
+    *ngIf="taskService.hasTask"
     mat-raised-button
     color="primary"
     (click)="openDeleteDialog()"
@@ -28,7 +28,7 @@
     class="button-row"
     matTooltip="Make sure you assigned a priority for every task first!"
     ><button
-      *ngIf="taskService.tasks.length"
+      *ngIf="taskService.hasTask"
       mat-raised-button
       color="primary"
       [routerLink]="['/list']"

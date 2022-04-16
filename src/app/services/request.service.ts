@@ -45,7 +45,7 @@ export class RequestService {
     console.log(message);
   }
 
-  getQuizResponse(): Observable<any> {
+  private getQuizResponse(): Observable<any> {
     return this.http
       .get(this.url, this.httpOptions)
       .pipe(catchError(this.handleError('getQuizResponse')));
