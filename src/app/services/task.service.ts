@@ -5,44 +5,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TaskService {
-  public tasks: Task[] = [
-    // new Task({
-    //   id: 0,
-    //   name: 'Math HW',
-    //   priority: 2,
-    //   dueDate: new Date('2022-04-08'),
-    //   status: 0,
-    //   timeNeeded: 1.25,
-    // }),
-    // new Task({
-    //   id: 1,
-    //   name: 'Physics HW',
-    //   priority: 1,
-    //   dueDate: new Date('2022-04-08'),
-    //   status: 0,
-    //   timeNeeded: 2.5,
-    // }),
-    // new Task({
-    //   id: 2,
-    //   name: 'Calculus HW',
-    //   priority: 3,
-    //   dueDate: new Date('2022-04-10'),
-    //   status: 0,
-    //   timeNeeded: 2.5,
-    // }),
-    // new Task({
-    //   id: 3,
-    //   name: 'Clean Room',
-    //   priority: 1,
-    //   dueDate: new Date('2022-04-10'),
-    //   status: 0,
-    //   timeNeeded: 2,
-    // }),
-  ];
+  private tasks: Task[] = [];
+  public hasTask: boolean;
+  private id: number;
 
-  constructor() {}
+  constructor() {this.hasTask = false; this.id = 0;}
 
-  convertTask(task: Task): Task {
+  private convertTask(task: Task): Task {
     let tempTask: Task;
     tempTask = {
       id: task.id,
@@ -57,14 +26,14 @@ export class TaskService {
 
   add(task: Task): void {
     this.tasks.push(this.convertTask(task));
-    // console.log(task);
-    // console.log('task successfully added');
-    // console.log('current tasks');
-    // console.log(this.tasks);
+    this.hasTask = true;
+    this.id++;
   }
 
   clear(): void {
     this.tasks = [];
+    this.hasTask = false;
+    this.id = 0;
   }
 
   delete(idToFind: number): void {
@@ -72,8 +41,9 @@ export class TaskService {
     if (index > -1) {
       this.tasks.splice(index, 1);
     }
-    console.log('taskdelete');
-    console.log(this.tasks);
+    if (this.tasks.length === 0) {
+      this.hasTask = false;
+    }
   }
 
   update(idToFind: number, updateTime: number, updatePriority: number): void {
@@ -81,16 +51,14 @@ export class TaskService {
     this.tasks[index].timeNeeded = updateTime;
     this.tasks[index].priority = updatePriority;
     this.tasks[index].status = 0;
-    // console.log('task updated');
-    // console.log(this.tasks[index]);
   }
 
   getTaskName(id: number): any {
     return this.tasks.find((task) => task.id === id)?.name;
   }
 
-  getNumberofTasks(): number {
-    return this.tasks.length + 1;
+  getNewId(): number {
+    return this.id;
   }
 
   getTaskList(): Array<Task> {

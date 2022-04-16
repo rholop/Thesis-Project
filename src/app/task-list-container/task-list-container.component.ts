@@ -20,7 +20,7 @@ export class TaskListContainerComponent implements OnInit {
   openNewTaskDialog(): void {
     const dialogRef = this.dialog.open(NewTaskComponent, {
       minWidth: '30em',
-      data: this.taskService.getNumberofTasks(),
+      data: this.taskService.getNewId(),
     });
 
     dialogRef.afterClosed().subscribe((result) => {

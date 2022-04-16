@@ -23,7 +23,7 @@ export class RequestService {
   private httpOptions = {
     headers: new HttpHeaders({
       Authorization:
-        'Bearer tfp_4jx9QAhwEkX84j4kKKwUnKHWE4QD4J4sCeLbf1ej6o1g_3pYNDaENnhuQBv',
+        'Bearer <personal access token>',
     }),
   };
 
@@ -45,7 +45,7 @@ export class RequestService {
     console.log(message);
   }
 
-  getQuizResponse(): Observable<any> {
+  private getQuizResponse(): Observable<any> {
     return this.http
       .get(this.url, this.httpOptions)
       .pipe(catchError(this.handleError('getQuizResponse')));

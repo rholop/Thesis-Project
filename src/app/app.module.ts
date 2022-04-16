@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,7 +11,6 @@ import { TaskManualComponent } from './task-manual/task-manual.component';
 import { TypeformComponent } from './typeform/typeform.component';
 import { ListExporterComponent } from './list-exporter/list-exporter.component';
 import { HomeComponent } from './home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeContainerComponent } from './home-container/home-container.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -41,19 +41,19 @@ import { HomeDialogComponent } from './home-dialog/home-dialog.component';
     HomeDialogComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatDialogModule,
     HttpClientModule,
+    MatBadgeModule,
     MatButtonModule,
     MatCardModule,
-    MatTooltipModule,
+    MatDialogModule,
     MatFormFieldModule,
+    MatInputModule,
     MatRadioModule,
-    MatBadgeModule,
+    MatTooltipModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

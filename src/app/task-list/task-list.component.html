@@ -1,5 +1,5 @@
-<ul *ngIf="taskService.tasks.length">
-  <li *ngFor="let task of taskService.tasks">
+<ul *ngIf="taskService.hasTask">
+  <li *ngFor="let task of taskService.getTaskList()">
     {{ task.name }}
     <span class="button-row">
       <span *ngIf="task.status < 0">
@@ -42,6 +42,6 @@
     </span>
   </li>
 </ul>
-<div *ngIf="taskService.tasks.length == 0">
+<div *ngIf="!taskService.hasTask">
   <mat-card-content><h3>No tasks yet! Add one below!</h3></mat-card-content>
 </div>
