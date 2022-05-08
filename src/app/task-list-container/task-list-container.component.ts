@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewTaskComponent } from '../new-task/new-task.component';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { HomeDialogComponent } from '../home-dialog/home-dialog.component';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-task-list-container',
@@ -28,9 +29,13 @@ export class TaskListContainerComponent implements OnInit {
       if (result === undefined) {
       } else {
         this.newTask = new Task(result);
-        this.taskService.add(this.newTask);
-        this.hidden = true;
-        console.log(typeof result);
+        if (this.taskService.checkForDuplicate(this.newTask)) {
+          this.openErrorDialog();
+        } else {
+          this.taskService.add(this.newTask);
+          this.hidden = true;
+          console.log(typeof result);
+        }
       }
     });
   }
@@ -67,4 +72,12 @@ export class TaskListContainerComponent implements OnInit {
   ngOnInit(): void {
     this.hidden = false;
   }
+
+  openErrorDialog(): void {
+    const dialogRef = this.dialog.open(ErrorDialogComponent, {
+      minWidth: '30em',
+    });
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
+
 }

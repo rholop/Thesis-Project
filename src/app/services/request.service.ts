@@ -23,7 +23,7 @@ export class RequestService {
   private httpOptions = {
     headers: new HttpHeaders({
       Authorization:
-        'Bearer <personal access token>',
+        'Bearer <private token>',
     }),
   };
 
